@@ -1,0 +1,13 @@
+development:
+  host: localhost
+  port: 27017
+  database: yumtags_dev
+  logfile: development.log
+    
+production:
+  host: localhost
+  port: 27017
+  database: yumtags_prod
+  logfile: production.log
+    
+environment: development

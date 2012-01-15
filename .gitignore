@@ -1,0 +1,7 @@
+.vagrant
+Gemfile.lock
+log/*
+notes.txt
+tmp/*
+public/*
+app/lib/repo_creator.rb.pid

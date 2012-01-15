@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+#
+# repo_creator      This is a startup script for use in /etc/init.d
+#
+# chkconfig:    2345 99 99
+# description:  Description of program / service
+APP_NAME = 'repo_creator'
+CONTROL_SCRIPT = "bin/repo_creator_control.rb"
+
+#Command to run
+BASE_COMMAND = "cd <%= @app_home %> && bundle exec ruby #{CONTROL_SCRIPT}"
+#Sort out RVM
+RVM = "/usr/local/rvm/bin/rvm-shell 1.9.2 -c"
+
+#Could implement status, but start is idempotent so it's a task on the list
+case ARGV.first
+    when 'start'
+        exec "#{RVM} \"#{BASE_COMMAND} start\""
+    when 'stop'
+        exec "#{RVM} \"#{BASE_COMMAND} stop\""
+    when 'restart'
+        exec "#{RVM} \"#{BASE_COMMAND} restart\""
+end
+unless %w{start stop restart}.include? ARGV.first
+    puts "Usage: #{APP_NAME} {start|stop|restart}"
+    exit 1
+end

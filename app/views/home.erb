@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+<title>Home</title>
+</head>
+<body>
+<h1>Yumtags!</h1>
+<br>
+
+<% if defined? @message and not @message.nil? %>
+<p><b><%= @message %></b></p><br>
+<% end %>
+
+<form action="/" method="post">
+Want to generate a new tag???!!!!1one:<br>
+<input type="submit" value="Create tag" />
+</form>

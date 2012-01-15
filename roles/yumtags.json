@@ -1,0 +1,9 @@
+{
+  "name": "yumtags",
+  "default_attributes": { },
+  "override_attributes": { },
+  "json_class": "Chef::Role",
+  "description": "Creates a server for use with Yumtags!",
+  "chef_type": "role",
+  "run_list": [ "recipe[yum]", "recipe[rvm::system]", "recipe[rvm::vagrant]", "recipe[rvm::gem_package]", "recipe[bundler]", "recipe[git]", "recipe[mongodb]", "recipe[activemq]", "recipe[passenger_apache2::mod_rails]", "recipe[yumtags]" ]
+}
